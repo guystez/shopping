@@ -1,23 +1,24 @@
-import logo from './logo.svg';
+
 import './App.css';
+import Products from './components/Products';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+import Button from 'react-bootstrap/Button';
+
 
 function App() {
+
+  const [product,setProduct]=useState([])
+
+  useEffect(() => {
+    axios.get('http://127.0.0.1:8000/products/')
+    .then((response)=> setProduct((response.data) ? response.data:[]))
+  },[])
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+     <Products product={product} ></Products>
+
     </div>
   );
 }
