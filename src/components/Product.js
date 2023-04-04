@@ -1,12 +1,16 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
 import axios from 'axios';
 
-function Product({product,setCartlist}) {
+function Product({product,setCartlist,setProduct}) {
   
-  
+  useEffect(() => {
+    axios.get('http://127.0.0.1:8000/product/products/')
+    .then((response)=> setProduct((response.data) ? response.data:[]))
+  },[])
+
 
   function AddToCart(productId) {
     const product = { product: productId, quantity: 1, user:'username'}

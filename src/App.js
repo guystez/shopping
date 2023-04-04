@@ -104,7 +104,7 @@ function logout() {
       <Routes>
      {/* <Route path = '/'></Route>    */}
      <Route path='/login' element={<LoginPage login={login}></LoginPage>}></Route>
-     <Route path='/product' element={<Products product={product}cart={cart} ></Products>}></Route>
+     <Route path='/product' element={<Products product={product}setProduct={setProduct}cart={cart} ></Products>}></Route>
      <Route path='/cart' element={<Cart product={product}cart={cart}setCart={setCart} ></Cart>}></Route>
      <Route path='/' element={<Home></Home>}></Route>
      <Route path='*'element={<NotFoundPage/>}></Route>

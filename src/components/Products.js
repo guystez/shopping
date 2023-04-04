@@ -1,6 +1,6 @@
 import Product from "./Product"
 
-function Products({product,cart}) {
+function Products({product,cart,setProduct}) {
   const cardListStyle = {
     display: 'grid',
     gridTemplateColumns: '1fr 1fr 1fr 1fr',
@@ -12,7 +12,7 @@ function Products({product,cart}) {
     <div style={cardListStyle}>
          {/* for product in products:
              return '<Product ' */}
-    {product.map(product => <Product key={product.id} product={product} cart={cart}/>)}
+    {product.map(product => <Product key={product.id} product={product} setProduct={setProduct} cart={cart}/>)}
  
 
     </div>
