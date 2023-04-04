@@ -3,6 +3,7 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import axios from 'axios';
 import Product from './Product';
+import { useEffect } from 'react';
 
 
 
@@ -41,6 +42,11 @@ function Cartlist({product,cart,setCart}) {
     }
     
 
+    useEffect(() => {
+        axios.get('https://shopping-django-guy-last.onrender.com/product/cart/')
+        .then((response)=> setCart((response.data) ? response.data:[]))
+      },[])
+    
 
     function plusclick(){
         setQuantity(quantity+1)}

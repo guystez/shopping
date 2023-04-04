@@ -4,9 +4,15 @@ import Card from 'react-bootstrap/Card';
 
 import axios from 'axios';
 import Cartlist from './Cartlist';
+import { useEffect } from 'react';
 
-function cart({product,cart,setCart}) {
-    function calculateTotalPrice(cart) {
+function Cart({product,cart,setCart}) {
+  useEffect(() => {
+    axios.get('https://shopping-django-guy-last.onrender.com/product/cart/')
+    .then((response)=> setCart((response.data) ? response.data:[]))
+  },[])
+
+  function calculateTotalPrice(cart) {
         let total = 0;
         cart.map(product => {
           total += product.price;
@@ -15,7 +21,9 @@ function cart({product,cart,setCart}) {
         return total
       }
       
-
+      
+  
+  
 
 
     const cardListStyle = {
@@ -38,7 +46,6 @@ function cart({product,cart,setCart}) {
     
         
 
-
         return (
             <>
             
@@ -59,4 +66,4 @@ function cart({product,cart,setCart}) {
     }
   
   
-export default cart
+export default Cart
