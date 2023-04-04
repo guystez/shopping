@@ -13,10 +13,9 @@ function Product({product,setCartlist,setProduct}) {
 
 
   function AddToCart(productId) {
-    const product = { product: productId, quantity: 1, user:'username'}
-    axios.post(`https://shopping-django-guy-last.onrender.com/product/cart/`, product
-      
-    )
+    const product = { product: productId, quantity: 1, user:1}
+    console.log(product);
+    axios.post(`https://shopping-django-guy-last.onrender.com/product/cart/`, product)
       .then(response => {
         setCartlist(data => [...data, product])
         
@@ -26,7 +25,7 @@ function Product({product,setCartlist,setProduct}) {
       })
       .catch(error => {
        
-        alert('Successes');
+        alert('Error');
 
       });
   }
@@ -36,7 +35,7 @@ function Product({product,setCartlist,setProduct}) {
     return (
       
       <div >
-        
+
          <Card style={{ width: '18rem' }}>
       <Card.Img variant="top" src={`https://shopping-django-guy-last.onrender.com/static${product.image}`} alt={product.name} style={{height:300,width:'100%'}} />
       <Card.Body>
