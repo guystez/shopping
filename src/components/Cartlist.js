@@ -12,14 +12,14 @@ function Cartlist({product,cart,setCart}) {
     console.log(cart,"cartttttttttttttttttttttttttttttttttttt");
     const [quantity,setQuantity]=useState(product.quantity)
     function Deletefromcart(productId){
-    axios.delete(`http://127.0.0.1:8000/product/deletecart/${productId}`)
+    axios.delete(`https://shopping-django-guy-last.onrender.com/product/deletecart/${productId}`)
     const newCart = cart.filter(item => item.product.id !== productId)
       setCart(newCart)
     console.log(productId);
 }
 
     function updatecart(productId,quantity,cartId){
-        axios.put(`http://127.0.0.1:8000/product/updatecart/${cartId}/`,
+        axios.put(`https://shopping-django-guy-last.onrender.com/product/updatecart/${cartId}/`,
         {
             "id":cartId,
             "product":productId,
@@ -56,7 +56,7 @@ function Cartlist({product,cart,setCart}) {
     <div>
           <Card style={{ width: '18rem' }}>
             <div>
-        <Card.Img className='small-image' variant="top" src={`http://127.0.0.1:8000/static${product.product.image}`} alt={product.product.name} style={{height:300,width:'100%'}} />
+        <Card.Img className='small-image' variant="top" src={`https://shopping-django-guy-last.onrender.com/static${product.product.image}`} alt={product.product.name} style={{height:300,width:'100%'}} />
         </div>
         <Card.Body>
             <Card.Title>{product.product.name}</Card.Title>

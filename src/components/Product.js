@@ -7,14 +7,14 @@ import axios from 'axios';
 function Product({product,setCartlist,setProduct}) {
   
   useEffect(() => {
-    axios.get('http://127.0.0.1:8000/product/products/')
+    axios.get('https://shopping-django-guy-last.onrender.com/product/products/')
     .then((response)=> setProduct((response.data) ? response.data:[]))
   },[])
 
 
   function AddToCart(productId) {
     const product = { product: productId, quantity: 1, user:'username'}
-    axios.post(`http://127.0.0.1:8000/product/cart/`, product
+    axios.post(`https://shopping-django-guy-last.onrender.com/product/cart/`, product
       
     )
       .then(response => {
@@ -38,7 +38,7 @@ function Product({product,setCartlist,setProduct}) {
       <div >
         
          <Card style={{ width: '18rem' }}>
-      <Card.Img variant="top" src={`http://127.0.0.1:8000/static${product.image}`} alt={product.name} style={{height:300,width:'100%'}} />
+      <Card.Img variant="top" src={`https://shopping-django-guy-last.onrender.com/static${product.image}`} alt={product.name} style={{height:300,width:'100%'}} />
       <Card.Body>
         <Card.Title>{product.name}</Card.Title>
         <Card.Text>

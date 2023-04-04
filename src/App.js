@@ -28,14 +28,14 @@ function App() {
   const [cart,setCart]=useState([])
 
   useEffect(() => {
-    axios.get('http://127.0.0.1:8000/product/cart/')
+    axios.get('https://shopping-django-guy-last.onrender.com/product/cart/')
     .then((response)=> setCart((response.data) ? response.data:[]))
   },[])
 
   const [product,setProduct]=useState([])
 
   useEffect(() => {
-    axios.get('http://127.0.0.1:8000/product/products/')
+    axios.get('https://shopping-django-guy-last.onrender.com/product/products/')
     .then((response)=> setProduct((response.data) ? response.data:[]))
   },[])
 
@@ -47,7 +47,7 @@ function App() {
   
    function login(user, pass) {
     console.log(user, pass)
-    axios.post('http://localhost:8000/login/', {
+    axios.post('https://shopping-django-guy-last.onrender.com/login/', {
         username: user,
         password: pass,
     })
@@ -79,7 +79,7 @@ function App() {
 }
 
 function logout() {
-  axios.get("http://localhost:8000/logout/")
+  axios.get("https://shopping-django-guy-last.onrender.com/logout/")
   setSession(null)
   localStorage.removeItem('session')
   localStorage.removeItem('username')

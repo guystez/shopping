@@ -28,7 +28,7 @@ function cart({product,cart,setCart}) {
     
     function Checkout(){
         alert('Thank you for your purchase!');
-        axios.post(`http://127.0.0.1:8000/product/checkout/`,
+        axios.post(`https://shopping-django-guy-last.onrender.com/product/checkout/`,
         {
            cart:cart
             
